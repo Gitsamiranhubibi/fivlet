@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    My Stats
+{% endblock %}
+
+{% block body %}
+
+<!-- Player Tag -->
+<h2 class="text-center mb-4">
+    Your Rank: {{ overall.tag }}
+</h2>
+
+<!-- Performance Table -->
+<div class="d-flex justify-content-center">
+    <table class="table table-bordered table-hover w-75 bg-white shadow-sm">
+        <thead class="table-dark">
+            <tr>
+                <th>Date</th>
+                <th>Attempts</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in performances %}
+            <tr>
+                <td>{{ row.date }}</td>
+                <td>{{ row.attempts }}</td>
+                <td>
+                    {% if row.status == "win" %}
+                        <span class="badge bg-success">Win</span>
+                    {% elif row.status == "lost" %}
+                        <span class="badge bg-danger">Loss</span>
+                    {% else %}
+                        <span class="badge bg-warning text-dark">Give Up</span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<!-- Stats Progress Bar -->
+<div class="mt-5 w-75 mx-auto">
+
+    <div class="progress" style="height: 35px;">
+        <div class="progress-bar bg-success"
+             role="progressbar"
+             style="width: {{ overall.win_percent }}%">
+            {{ "%.2f"|format(overall.win_percent) }}%
+        </div>
+
+        <div class="progress-bar bg-danger"
+             role="progressbar"
+             style="width: {{ overall.loss_percent }}%">
+            {{ "%.2f"|format(overall.loss_percent) }}%
+        </div>
+
+        <div class="progress-bar bg-warning text-dark"
+             role="progressbar"
+             style="width: {{ overall.giveup_percent }}%">
+            {{ "%.2f"|format(overall.giveup_percent) }}%
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-between mt-2 small">
+        <span class="text-success">Win</span>
+        <span class="text-danger">Loss</span>
+        <span class="text-warning">Give Up</span>
+    </div>
+
+</div>
+
+{% endblock %}

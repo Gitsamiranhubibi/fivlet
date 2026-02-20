@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Game
+{% endblock %}
+
+{% block body %}
+
+<h2>Guess the Fivlet!</h2>
+
+<!-- Instructions -->
+<div class="instructions mb-3 text-center">
+    Absent Letters <span class="dot grey"></span> 
+    Wrong-positioned Letters <span class="dot yellow"></span>
+    Correct-positioned Letters <span class="dot green"></span> 
+</div>
+
+<!-- 5x5 Letter Grid -->
+<div class="d-flex flex-column align-items-center mb-4"> 
+    {% for row in range(rows) %}
+        <div class="d-flex mb-2" data-row="{{ row }}">
+            {% for col in range(5) %}
+            <input autocomplete="off"
+                class="letter-box text-center border border-secondary"
+                data-col="{{ col }}"
+                inputmode="text"
+                maxlength="1"
+                pattern="[A-Za-z]"
+                type="text"
+                aria-label="Letter {{ col + 1 }} of row {{ row + 1 }}">
+            {% endfor %}
+        </div>
+    {% endfor %}
+</div>
+
+<!-- Result message -->
+<div id="result_message" class="my-4 text-center">
+        <p class="fs-4 fw-bold" id="message"></p>
+        <p id="fivlet"><strong></strong></p>
+        <button class="btn btn-success" onclick="location.reload()">Reload</button>
+</div>
+
+<!-- Buttons -->
+<div class="d-flex justify-content-center gap-2 mb-3">
+    <button id="submit" class="btn btn-primary">Submit</button>
+    <button id="reveal" class="btn btn-warning">Reveal</button>
+    <button id="clear" class="btn btn-secondary">Clear</button>
+</div>
+
+<!-- 26-letter Keyboard -->
+<div id="unused_letters" class="keyboard d-flex flex-wrap justify-content-center gap-1">
+    {% for letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ" %}
+    <div class="key btn btn-light">{{ letter }}</div>
+    {% endfor %}
+</div>
+
+{% endblock %}

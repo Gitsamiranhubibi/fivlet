@@ -1,0 +1,57 @@
+
+.dot {
+    display: inline-block;
+    width: 20px;      /* medium size */
+    height: 20px;     /* medium size */
+    border-radius: 50%; /* converts into circle */
+    margin-right: 8px; /* space between dot and text */
+    vertical-align: middle; /* align dot with text */
+}
+
+.dot.grey { background-color: grey; }
+.dot.yellow { background-color: #ffc107; }
+.dot.green { background-color: #28a745; }
+
+.instructions {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem !important;
+}
+
+.keyboard .key {
+    padding: 4px 8px;
+    font-size: 0.85rem;
+}
+
+.letter-box {
+    width: 50px;
+    height: 50px;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    margin: 2px;
+}
+
+.navbar-brand {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.3rem;
+    letter-spacing: 1px;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+    transform: scale(1.5);
+    color: #ffc107;
+}
+
+h2 {
+    font-family: 'Roboto Slab', serif;  /* Matches navbar brand */
+    font-weight: 700;                  /* Slightly bold */
+    color: #343a40;                    /* Dark gray, looks good on light background */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Subtle depth */
+    margin-bottom: 0.5rem;               /* Space below heading */
+    margin-top: 10px;
+    margin-left: 15px;
+
+}
+
