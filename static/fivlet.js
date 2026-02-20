@@ -146,6 +146,7 @@ document.addEventListener('DOMContentLoaded', function(){
         else if (result.type === "lost") {
             message.textContent = 'Better Luck Next Time!';
             fivlet.textContent = `Word: ${result.word}`;
+            fivlet.style.color = 'green';
             button.textContent = 'Try Again';
             disableAll();
             return;
@@ -197,6 +198,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
         message.textContent = 'Gave up too easily?';
         fivlet.textContent = `Word: ${result.word}`;
+        fivlet.style.color = 'green';
         button.textContent = 'Try Another';
         disableAll();
         return;
